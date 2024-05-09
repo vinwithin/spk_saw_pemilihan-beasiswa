@@ -29,7 +29,6 @@ class hitungController extends Controller
         foreach (Nilai::orderBy('id_alternatif')->orderBy('id_kriteria')->get() as $nilai)
             $nilais[$nilai->id_alternatif][$nilai->id_kriteria] = $nilai->nilai;
 
-        
         $arr = [];
         foreach ($nilais as $key => $val) {
             foreach ($val as $k => $v) {
@@ -88,5 +87,7 @@ class hitungController extends Controller
         // dd($rank);
         ksort($total);
         return view('hitung.index', compact('title', 'kriterias', 'alternatifs', 'nilais', 'minmax', 'normal', 'terbobot', 'total', 'rank'));
+
     }
+    
 }

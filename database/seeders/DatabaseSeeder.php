@@ -21,19 +21,31 @@ class DatabaseSeeder extends Seeder
                 
                 'nama_kriteria' => 'Nilai Raport',
                 'atribut' => 'Benefit',
-                'bobot' => 0.5,
+                'bobot' => 0.3,
             ],
             [
                 
                 'nama_kriteria' => 'Penghasilan Orang Tua',
                 'atribut' => 'Cost',
-                'bobot' => 0.25,
+                'bobot' => 0.2,
             ],
             [
                 
                 'nama_kriteria' => 'Tanggungan Orang Tua',
                 'atribut' => 'Benefit',
-                'bobot' => 0.25,
+                'bobot' => 0.2,
+            ],
+            [
+                
+                'nama_kriteria' => 'Nilai Toefl',
+                'atribut' => 'Benefit',
+                'bobot' => 0.15,
+            ],
+            [
+                
+                'nama_kriteria' => 'Jumlah Organisasi Yang Diikuti',
+                'atribut' => 'Benefit',
+                'bobot' => 0.15,
             ],
         ]);
     }

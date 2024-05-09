@@ -33,7 +33,7 @@
               <th>Nama Kriteria</th>
               <th>Atribut</th>
               <th>Bobot</th>
-              <th>Action</th>
+             
             </tr>
             @foreach ($kriteria as $item)
             <tr>
@@ -41,7 +41,7 @@
               <td>{{$item->nama_kriteria}}</td>
               <td>{{$item->atribut}}</td>
               <td>{{$item->bobot}}</td>
-              <td><span><a href="/alternatif/edit/{{ $item->id }}" class="btn btn-warning">Edit</a> <a href="/alternatif/delete/{{ $item->id }}" class="btn btn-danger">Hapus</a></span></td>
+            
             </tr>
             @endforeach
           </table>
