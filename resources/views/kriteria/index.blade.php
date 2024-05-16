@@ -14,12 +14,10 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <h4>Daftar Alternatif</h4>
+        <h4>Daftar Kriteria</h4>
         <div class="card-header-form">
             <div class="input-group">
-              <div class="input-group-btn">
-                <a class="btn btn-primary" href="alternatif/create">Tambah Data</a>
-              </div>
+              
             </div>
           </form>
         </div>
