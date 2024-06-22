@@ -10,77 +10,6 @@ use Illuminate\Http\Request;
 class alternatifController extends Controller
 {
     // Fungsi untuk mengubah nilai raport ke skala 1-5
-function mapNilaiRaport($nilai) {
-    if ($nilai >= 90) {
-        return 5;
-    } elseif ($nilai >= 75 && $nilai < 90) {
-        return 4;
-    } elseif ($nilai >= 60 && $nilai < 75) {
-        return 3;
-    } elseif ($nilai >= 55 && $nilai < 60) {
-        return 2;
-    } else {
-        return 1;
-    }
-}
-
-// Fungsi untuk mengubah penghasilan orang tua ke skala 1-5
-function mapPenghasilanOrtu($penghasilan) {
-    if ($penghasilan >= 3500000) {
-        return 5;
-    } elseif ($penghasilan >= 2500000 && $penghasilan < 3500000) {
-        return 4;
-    } elseif ($penghasilan >= 1500000 && $penghasilan < 2500000) {
-        return 3;
-    } elseif ($penghasilan >= 1000000 && $penghasilan < 1500000) {
-        return 2;
-    } else {
-        return 1;
-    }
-}
-
-// Fungsi untuk mengubah tanggungan orang tua ke skala 1-5
-function mapTanggunganOrtu($tanggungan) {
-    if ($tanggungan >= 5) {
-        return 5;
-    } elseif ($tanggungan == 4) {
-        return 4;
-    } elseif ($tanggungan == 3) {
-        return 3;
-    } elseif ($tanggungan == 2) {
-        return 2;
-    } else {
-        return 1;
-    }
-}
-
-function mapNilaiToefl($nilai) {
-    if ($nilai >= 520) {
-        return 5;
-    } elseif ($nilai >= 481 && $nilai <= 519) {
-        return 4;
-    } elseif ($nilai >= 421 && $nilai <= 480) {
-        return 3;
-    } elseif ($nilai >= 311 && $nilai <= 420) {
-        return 2;
-    } else {
-        return 1;
-    }
-}
-
-function mapJumlahOrganisasi($jumlah) {
-    if ($jumlah >= 5) {
-        return 5;
-    } elseif ($jumlah == 4) {
-        return 4;
-    } elseif ($jumlah == 3) {
-        return 3;
-    } elseif ($jumlah == 2) {
-        return 2;
-    } else {
-        return 1;
-    }
-}
 
     public function index()
     {
@@ -116,11 +45,7 @@ function mapJumlahOrganisasi($jumlah) {
             'nilai_toefl' => 'required',
             'jumlah_organisasi' => 'required',
         ]);
-        $nilai['nilai_raport'] = $this->mapNilaiRaport($nilai['nilai_raport']);
-        $nilai['penghasilan_ortu'] = $this->mapPenghasilanOrtu($nilai['penghasilan_ortu']);
-        $nilai['tanggungan_ortu'] = $this->mapTanggunganOrtu($nilai['tanggungan_ortu']);
-        $nilai['nilai_toefl'] = $this->mapNilaiToefl($nilai['nilai_toefl']);
-        $nilai['jumlah_organisasi'] = $this->mapJumlahOrganisasi($nilai['jumlah_organisasi']);
+        
 
         // Memasukkan nilai untuk setiap kriteria
         $nilaiAngka = array_values($nilai);
@@ -179,11 +104,7 @@ function mapJumlahOrganisasi($jumlah) {
                 'nilai_toefl' => 'required',
                 'jumlah_organisasi' => 'required',
             ]);
-            $nilai['nilai_raport'] = $this->mapNilaiRaport($nilai['nilai_raport']);
-            $nilai['penghasilan_ortu'] = $this->mapPenghasilanOrtu($nilai['penghasilan_ortu']);
-            $nilai['tanggungan_ortu'] = $this->mapTanggunganOrtu($nilai['tanggungan_ortu']);
-            $nilai['nilai_toefl'] = $this->mapNilaiToefl($nilai['nilai_toefl']);
-            $nilai['jumlah_organisasi'] = $this->mapJumlahOrganisasi($nilai['jumlah_organisasi']);
+            
     
 
             $nilaiAngka = array_values($nilai);

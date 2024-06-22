@@ -12,8 +12,8 @@
 @endif
 <div class="row">
   <div class="col-12">
-    <div class="card">
-      <div class="card-header">
+    <div class="card shadow p-2">
+      <div class="card-header ">
         <h4>Daftar Alternatif</h4>
         <div class="card-header-form">
             <div class="input-group">

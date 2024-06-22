@@ -32,51 +32,61 @@ class hitungController extends Controller
         $arr = [];
         foreach ($nilais as $key => $val) {
             foreach ($val as $k => $v) {
-                $arr[$key][$k] = $v;
-                // dd($arr[$key][$k]);
+                $arr[$k][$key] = $v;
+                // dd($arr[$k][$key]);
                 
             }
         }
-        // dd($nilais);
+        // dd($arr);
         foreach ($arr as $key => $val) {
             $minmax[$key]['min'] = min($val);
             $minmax[$key]['max'] = max($val);
-           
+        //    dd($minmax[$key]['min']);
             
         }
         // dd($nilais);
-        $normal = [];
-        // foreach ($nilais as $key => $val) {
-        //     // Periksa apakah kunci 1 ada dalam elemen saat ini
-        //     if (isset($val[1])) {
-        //         foreach ($val as $k => $v) {
-        //             // Proses normalisasi nilai di sini
-        //             $normal[$key][$k] = strtolower($kriterias[$k]->atribut) === 'benefit' ? $v / $minmax[$k]['max'] : $minmax[$k]['min'] / $v;               
-
-        //         }
-        //     } else {
-        //         // Lakukan penanganan kesalahan atau log jika diperlukan
-        //         echo "Undefined array key 1 pada elemen dengan kunci $key";
-        //     }
-        // }
+        $normal1 = [];
+       
         
-        foreach ($nilais as $key => $val) {
+        foreach ($arr as $key => $val) {
             foreach ($val as $k => $v) {
                 // dd($minmax[29]['min']);
-                $normal[$key][$k] = strtolower($kriterias[$k]->atribut) === 'Benefit' ? $v / $minmax[$key]['max'] : $minmax[$key]['min'] / $v;               
+                // dd($kriterias[$k]->atribut);
+                $normal1[$key][$k] = $kriterias[$key]->atribut === 'Benefit' ? $v / $minmax[$key]['max'] : $minmax[$key]['min'] / $v;               
             }
         }  
-        
-        foreach ($normal as $key => $val) {
+        $normal = [];
+        foreach ($normal1 as $key => $val) {
             foreach ($val as $k => $v) {
-                $terbobot[$key][$k] = $v * $kriterias[$k]->bobot;
+                $normal[$k][$key] = $v;
+                // dd($arr[$k][$key]);
+                
+            }
+        }     
+
+        $terbobot1 = [];
+        foreach ($normal1 as $key => $val) {
+            foreach ($val as $k => $v) {
+                $terbobot1[$key][$k] = $v * $kriterias[$key]->bobot;
             }
         }
-                // dd($terbobot);
         
+        foreach ($terbobot1 as $key => $val) {
+            foreach ($val as $k => $v) {
+                $terbobot[$k][$key] = $v;
+                // dd($arr[$k][$key]);
+                
+            }
+        }
+
+        // $total1 = [];
+
+
         foreach ($terbobot as $key => $val) {
             $total[$key] = array_sum($val);
         }
+        // dd($total);
+        
         
         arsort($total);
        

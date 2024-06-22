@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-12">
-    <div class="card">
+    <div class="card shadow p-2">
       <div class="card-header">
         <h3 class="card-title">Perhitungan SAW</h3>
       </div>
@@ -34,20 +34,19 @@
                       @foreach ($kriterias as $kriteria)
                       <th>{{ $kriteria->nama_kriteria }}({{ $kriteria->atribut }}: {{ $kriteria->bobot }})</th>
                       @endforeach
-                      <th scope="col">Min</th>
-                      <th scope="col">Max</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
                     @foreach ($nilais as $key => $val)
                     <tr>
-                      <td>{{ $key }}</td>
+                      <td>{{ $loop->iteration}}</td>
                       <td>{{ $alternatifs[$key]->nama_alternatif }}</td>
                       @foreach ($val as $k => $v)
                       <td>{{ $v }}</td>
                       @endforeach
-                      <td>{{ $minmax[$key]['min'] }}</td>
-                      <td>{{ $minmax[$key]['max'] }}</td>
+                      {{-- <td>{{ $minmax[$key]['min'] }}</td>
+                      <td>{{ $minmax[$key]['max'] }}</td> --}}
                     </tr>
                     @endforeach
                   </tbody>
@@ -70,12 +69,15 @@
                   <tbody>
                     @foreach ($normal as $key => $val)
                     <tr>
-                      <td>{{ $key }}</td>
+                      <td>{{ $loop->iteration }}</td>
                       @foreach ($val as $k => $v)
+                    
                       <td>{{ round($v, 4) }}</td>
-                      @endforeach
+                    @endforeach
+                      
                     </tr>
                     @endforeach
+
                   </tbody>
                 </table>
               </div>
@@ -96,7 +98,7 @@
                   <tbody>
                     @foreach ($terbobot as $key => $val)
                     <tr>
-                      <td>{{ $key }}</td>
+                      <td>{{ $loop->iteration }}</td>
                       @foreach ($val as $k => $v)
                       <td>{{ round($v, 4) }}</td>
                       @endforeach
